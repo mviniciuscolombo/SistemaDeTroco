@@ -1,0 +1,90 @@
+// Projeto de como calcular a quantidade de notas a dar de troco.
+//Como dados usei um vetor com dados fixos apenas como demonstração mas a lógica é bem simples,
+//Basicamente pego uma nota e timinuo do valor total até que nao de pelo menos uma divisão,
+//então pulo pra proxima nota.
+package troco;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+public class TrocoRun {
+
+    public static void main(String[] args) {
+
+        ArrayList<Caixa> caixa = new ArrayList();
+        DecimalFormat df = new DecimalFormat("#0.00");
+        String leitura;
+        Double valor;
+        String saida = "";
+
+        //Os objetos abaixo são apenas para exemplo. 
+        //Em uma aplicação esses dados de caixa já virão do banco de dados.
+        //Os dados precisam estar em centavos para ser mais preciso, pois senão sempre faltará 0.01 centavo.
+        Caixa c1 = new Caixa(10000, 2);
+        caixa.add(c1);
+        Caixa c2 = new Caixa(5000, 2);
+        caixa.add(c2);
+        Caixa c3 = new Caixa(2000, 2);
+        caixa.add(c3);
+        Caixa c4 = new Caixa(1000, 2);
+        caixa.add(c4);
+        Caixa c5 = new Caixa(500, 2);
+        caixa.add(c5);
+        Caixa c6 = new Caixa(200, 2);
+        caixa.add(c6);
+        Caixa c7 = new Caixa(100, 2);
+        caixa.add(c7);
+        Caixa c8 = new Caixa(50, 2);
+        caixa.add(c8);
+        Caixa c9 = new Caixa(25, 2);
+        caixa.add(c9);
+        Caixa c10 = new Caixa(10, 2);
+        caixa.add(c10);
+        Caixa c11 = new Caixa(5, 2);
+        caixa.add(c11);
+        Caixa c12 = new Caixa(1, 2);
+        caixa.add(c12);
+       
+        while (true) {
+            ArrayList<Integer> qtde = new ArrayList();//array está aqui dentro do laço para ser zerado a cada troco.
+            Double total = 0.0;
+
+            leitura = JOptionPane.showInputDialog("Informe o valor! [Exemplo 3.50]");
+            valor = Double.parseDouble(leitura)*100;
+
+            for (Caixa tmp : caixa) {
+                Integer nNotas = 0;
+
+                while ((valor / tmp.getValor()) >= 1) {//verifica se a nota é maior que o valor, se for maior então é preciso uma menor.
+                    if (tmp.getQtde() > 0) {            //verifica se no caixa possui essa nota.
+                        tmp.setQtde(tmp.getQtde() - 1);//diminui 1 nota ou moeda do caixa.
+                        valor = valor - tmp.getValor();//diminui do total informado o valor da nota usada.
+                        nNotas++;                       //soma 1 ao valor de notas usadas desse valorno troco.
+                        total += tmp.getValor();        //soma o valor da nota para no final comparar se o troco está correto.
+                    } else {
+                        break;
+                    }
+                }
+                qtde.add(nNotas);   //adiciona a quantidade de notas necessárias no ArrayList.
+            }
+
+            for (int i = 0; i < qtde.size(); i++) {
+                Caixa caixaTmp = caixa.get(i);  //instância temporária do objeto pra não precisar buscar no array toda vez.
+                Integer qtdeTmp = qtde.get(i);
+                if (qtdeTmp >= 1) {
+                    //conversão para double para poder dividir por 100 para exibir corretamente os valores.
+                    Double x = Double.parseDouble(caixaTmp.getValor()+""); 
+                    saida += qtde.get(i) + "   R$ " + df.format(x/100.0) + "\n";
+                }
+            }
+
+            if (saida == "" || total != Double.parseDouble(leitura)*100) {//compara se o calor em notas é o mesmo do fornecido pelo usuário
+                String diferenca = df.format((Double.parseDouble(leitura)*100) - total);
+                saida += "\nFaltam R$ " + diferenca + " de troco!";
+            }
+            JOptionPane.showMessageDialog(null, saida);
+            saida = "";
+        }
+    }
+}
