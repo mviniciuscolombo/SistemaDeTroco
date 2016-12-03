@@ -1,7 +1,12 @@
-// Projeto de como calcular a quantidade de notas a dar de troco.
+// Projeto de como calcular a quantidade de notas e moedas a dar de troco.
 //Como dados usei um vetor com dados fixos apenas como demonstração mas a lógica é bem simples,
 //Basicamente pego uma nota e timinuo do valor total até que nao de pelo menos uma divisão,
 //então pulo pra proxima nota.
+//Utilizando o netbeans existe um pequeno problema com as divisões. Por exemplo: Se vc das alguma operação matemática com 100.80,
+//os valores decimais ficarão 0.799999999956, e isso resultara na falta de 1 centavo e no caso de faltar 5 centavos ficará como 4.99999956
+//e o sistema irá preencher com 4 moedas de 1 centavo ao invés de uma de 5 centavos. Por isso resolvi converter para centavos. 
+
+
 package troco;
 
 import java.text.DecimalFormat;
@@ -20,7 +25,7 @@ public class TrocoRun {
 
         //Os objetos abaixo são apenas para exemplo. 
         //Em uma aplicação esses dados de caixa já virão do banco de dados.
-        //Os dados precisam estar em centavos para ser mais preciso, pois senão sempre faltará 0.01 centavo.
+        
         Caixa c1 = new Caixa(10000, 2);
         caixa.add(c1);
         Caixa c2 = new Caixa(5000, 2);
