@@ -52,7 +52,7 @@ public class TrocoRun {
         caixa.add(c12);
        
         while (true) {
-            ArrayList<Integer> qtde = new ArrayList();//array está aqui dentro do laço para ser zerado a cada troco.
+            ArrayList<Integer> qtde = new ArrayList();              //array está aqui dentro do laço para ser zerado a cada troco.
             Double total = 0.0;
 
             leitura = JOptionPane.showInputDialog("Informe o valor! [Exemplo 3.50]");
@@ -61,12 +61,12 @@ public class TrocoRun {
             for (Caixa tmp : caixa) {
                 Integer nNotas = 0;
 
-                while ((valor / tmp.getValor()) >= 1) {//verifica se a nota é maior que o valor, se for maior então é preciso uma menor.
-                    if (tmp.getQtde() > 0) {            //verifica se no caixa possui essa nota.
-                        tmp.setQtde(tmp.getQtde() - 1);//diminui 1 nota ou moeda do caixa.
-                        valor = valor - tmp.getValor();//diminui do total informado o valor da nota usada.
-                        nNotas++;                       //soma 1 ao valor de notas usadas desse valorno troco.
-                        total += tmp.getValor();        //soma o valor da nota para no final comparar se o troco está correto.
+                while ((valor / tmp.getValor()) >= 1) {             //verifica se a nota é maior que o valor, se for maior então é preciso uma menor.
+                    if (tmp.getQtde() > 0) {                        //verifica se no caixa possui essa nota.
+                        tmp.setQtde(tmp.getQtde() - 1);             //diminui 1 nota ou moeda do caixa.
+                        valor = valor - tmp.getValor();             //diminui do total informado o valor da nota usada.
+                        nNotas++;                                   //soma 1 ao valor de notas usadas desse valorno troco.
+                        total += tmp.getValor();                    //soma o valor da nota para no final comparar se o troco está correto.
                     } else {
                         break;
                     }
@@ -75,7 +75,7 @@ public class TrocoRun {
             }
 
             for (int i = 0; i < qtde.size(); i++) {
-                Caixa caixaTmp = caixa.get(i);  //instância temporária do objeto pra não precisar buscar no array toda vez.
+                Caixa caixaTmp = caixa.get(i);                      //instância temporária do objeto pra não precisar buscar no array toda vez.
                 Integer qtdeTmp = qtde.get(i);
                 if (qtdeTmp >= 1) {
                     //conversão para double para poder dividir por 100 para exibir corretamente os valores.
