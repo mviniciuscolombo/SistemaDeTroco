@@ -1,0 +1,35 @@
+
+
+package troco;
+
+import java.util.ArrayList;
+import javax.rmi.CORBA.Util;
+
+public class Caixa {
+
+    private Integer valor;
+    private Integer qtde;
+    
+  
+    public Caixa(Integer valor, Integer qtde) {
+        this.valor = valor;
+        this.qtde = qtde;
+    }
+
+    public Integer getValor() {
+        return valor;
+    }
+
+    public void setValor(Integer valor) {
+        this.valor = valor;
+    }
+
+    public Integer getQtde() {
+        return qtde;
+    }
+
+    public void setQtde(Integer qtde) {
+        this.qtde = qtde;
+    }
+
+}
