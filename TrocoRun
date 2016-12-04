@@ -1,6 +1,6 @@
 // Projeto de como calcular a quantidade de notas a dar de troco.
 //Como dados usei um vetor com dados fixos apenas como demonstração mas a lógica é bem simples,
-//Basicamente pego uma nota e timinuo do valor total até que nao de pelo menos uma divisão,então pulo pra proxima nota.
+//Basicamente pego uma nota e diminuo do valor total até que nao de pelo menos uma divisão,então pulo pra proxima nota.
 
 package troco;
 
