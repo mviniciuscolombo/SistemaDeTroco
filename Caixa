@@ -33,7 +33,4 @@ public class Caixa {
     public void setQtde(Integer qtde) {
         this.qtde = qtde;
     }
-    
-  
-   
 }
