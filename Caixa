@@ -2,25 +2,27 @@
 
 package troco;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import javax.rmi.CORBA.Util;
 
 public class Caixa {
 
-    private Integer valor;
+    private BigDecimal valor;
     private Integer qtde;
-    
-  
-    public Caixa(Integer valor, Integer qtde) {
+
+    public Caixa(BigDecimal valor, Integer qtde) {
         this.valor = valor;
         this.qtde = qtde;
     }
 
-    public Integer getValor() {
+    
+    
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Integer valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
@@ -31,5 +33,7 @@ public class Caixa {
     public void setQtde(Integer qtde) {
         this.qtde = qtde;
     }
-
+    
+  
+   
 }
