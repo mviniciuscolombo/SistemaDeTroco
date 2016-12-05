@@ -2,14 +2,14 @@
 //Como dados usei um vetor com dados fixos apenas como demonstração mas a lógica é bem simples,
 //Basicamente pego uma nota e diminuo do valor total até que nao de pelo menos uma divisão,então pulo pra proxima nota.
 
-package troco;
+package projetotroco;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class Troco {
+public class ProjetoTroco {
 
     public static void main(String[] args) {
 
@@ -79,8 +79,8 @@ public class Troco {
                 }
             }
 
-            
-            if (saida == "" || !(total+"").equals(leitura)) {                   //compara se o calor em notas é o mesmo do fornecido pelo usuário
+           
+            if (saida == "" || total.compareTo(new BigDecimal(leitura)) < 0) {                   //compara se o calor em notas é o mesmo do fornecido pelo usuário
                 String diferenca = df.format((new BigDecimal(leitura).subtract(total)));
                 saida += "\nFaltam R$ " + diferenca + " de troco!";
             }
