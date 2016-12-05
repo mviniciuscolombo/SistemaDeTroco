@@ -22,36 +22,37 @@ public class ProjetoTroco {
         //Os objetos abaixo são apenas para exemplo. 
         //Em uma aplicação esses dados de caixa já virão do banco de dados.
         
-        Caixa c1 = new Caixa(new BigDecimal("100.0"), 2);
+        Caixa c1 = new Caixa(new BigDecimal("100.0"), 5);
         caixa.add(c1);
-        Caixa c2 = new Caixa(new BigDecimal("50.0"), 2);
+        Caixa c2 = new Caixa(new BigDecimal("50.0"), 5);
         caixa.add(c2);
-        Caixa c3 = new Caixa(new BigDecimal("20.0"), 2);
+        Caixa c3 = new Caixa(new BigDecimal("20.0"), 5);
         caixa.add(c3);
-        Caixa c4 = new Caixa(new BigDecimal("10.0"), 2);
+        Caixa c4 = new Caixa(new BigDecimal("10.0"), 5);
         caixa.add(c4);
-        Caixa c5 = new Caixa(new BigDecimal("5.0"), 2);
+        Caixa c5 = new Caixa(new BigDecimal("5.0"), 5);
         caixa.add(c5);
-        Caixa c6 = new Caixa(new BigDecimal("2.0"), 2);
+        Caixa c6 = new Caixa(new BigDecimal("2.0"), 5);
         caixa.add(c6);
-        Caixa c7 = new Caixa(new BigDecimal("1.0"), 2);
+        Caixa c7 = new Caixa(new BigDecimal("1.0"), 5);
         caixa.add(c7);
-        Caixa c8 = new Caixa(new BigDecimal("0.50"), 2);
+        Caixa c8 = new Caixa(new BigDecimal("0.50"), 5);
         caixa.add(c8);
-        Caixa c9 = new Caixa(new BigDecimal("0.25"), 2);
+        Caixa c9 = new Caixa(new BigDecimal("0.25"), 5);
         caixa.add(c9);
-        Caixa c10 = new Caixa(new BigDecimal("0.10"), 2);
+        Caixa c10 = new Caixa(new BigDecimal("0.10"), 5);
         caixa.add(c10);
-        Caixa c11 = new Caixa(new BigDecimal("0.05"), 2);
+        Caixa c11 = new Caixa(new BigDecimal("0.05"), 5);
         caixa.add(c11);
-        Caixa c12 = new Caixa(new BigDecimal("0.01"), 3);
+        Caixa c12 = new Caixa(new BigDecimal("0.01"), 5);
         caixa.add(c12);
        
         while (true) {
             ArrayList<Integer> qtde = new ArrayList();                          //array está aqui dentro do laço para ser zerado a cada troco.
             BigDecimal total = new BigDecimal("0.0");
 
-            leitura = JOptionPane.showInputDialog("Informe o valor! [Exemplo 3.50]");
+            leitura = JOptionPane.showInputDialog("Informe o valor! [Exemplo 3.50]\n"
+                    + "Leve em conta que inicialmente em caixa existem 5 notas/moedas de cada valor.");
             valor = new BigDecimal(leitura);
 
             for (Caixa tmp : caixa) {
